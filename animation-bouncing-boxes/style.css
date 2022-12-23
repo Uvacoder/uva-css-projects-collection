@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  mix-blend-mode:multiply;
+  opacity: 0.75;
+  animation: 
+    bounce var(--animation-duration) 
+    infinite alternate 
+    cubic-bezier(.2, .65, .6, 1) ;
+}
+
+.box.red {
+  background-color: red;
+  --animation-duration: 2s;
+  --animation-rotation: -360deg;
+  --x: 110px;
+}
+
+.box.orange {
+  background-color: yellow;
+  --animation-duration: 2s;
+  --animation-rotation: 0deg;
+  --x: 0px;
+}
+
+.box.yellow {
+  background-color: dodgerblue;
+  --animation-duration: 2s;
+  --animation-rotation: 360deg;
+  --x: -110px;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+    border-radius: 5px;
+  }
+  100% {
+    transform: translate(var(--x), -50px) rotate(var(--animation-rotation));
+    border-radius: 50%;
+  }
+}
