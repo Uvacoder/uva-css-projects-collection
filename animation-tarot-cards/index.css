@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: rgb(255, 204, 217);
+}
+
+
+
+.fool {
+    animation: moveUp ease-in-out 4s infinite running alternate-reverse;
+}
+@keyframes moveUp {
+    0% {
+        transform: translate(0, 0);
+
+    }
+    100% {
+        transform: translate(0, -150px);
+    }
+}
+
+.fool:hover {
+    animation-play-state: paused;
+}
+
+.star {
+    animation: star ease-in-out 4s infinite running; 
+}
+
+@keyframes star {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: translate(0, -150px) rotate(10deg);
+
+    }
+}
+
+.star:hover {
+    animation-play-state: paused;
+}
+
+.temperance {
+    animation-name: temperance;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-delay: 1.5s;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+
+
+}
+@keyframes temperance {
+    0% {
+        transform: translate(0, 20px) rotate(5deg);
+
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: translate(0, 100px);
+
+    }
+}
+
+.temperance:hover {
+    animation-play-state: paused;
+}
+
+.hermit {
+    animation-name: hermit;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    /* animation-delay: 4s; */
+    animation-play-state: running;
+    animation-timing-function: ease;
+    animation-direction: alternate-reverse;
+}
+@keyframes hermit {
+    0% {
+        transform: translate(0, 0);
+
+    }
+    /* 20% {
+        transform: translate(0, -90px);
+    }
+    50% {
+        transform: translate(0, -100px);
+    } */
+    100% {
+        transform: translate(0, 150px);
+    }
+}
+
+
+.hermit:hover {
+    animation-play-state: paused;
+}
+
+
+#hermit {
+    animation-name: glitterRight;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    animation-timing-function: ease-in;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes glitterRight{
+    0% {
+        transform: scale(0.95) rotate(14deg);
+    }
+    70% {
+        transform: scale(1.2) rotate(5deg);
+    }
+    100%{
+        transform: scale(0.95);
+    }
+}
+
