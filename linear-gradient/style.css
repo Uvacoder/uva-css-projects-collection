@@ -1,0 +1,54 @@
+:root {
+  --col-1: hsl(210, 100%, 70%);
+  --col-2: hsl(330, 100%, 70%);
+  --col-3: hsl(54, 100%, 70%);
+  --angle: 90deg;
+}
+
+body {
+  background: black;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.box, .box-glow {
+  position: absolute;
+  top: 25vmin;
+  width: 50vmin;
+  height: 50vmin;
+  background-image: linear-gradient(var(--angle), 
+    var(--col-1), 
+    var(--col-2), 
+    var(--col-3), 
+    var(--col-1)
+  );
+  background-size: 300%;
+  animation: animate 12s linear infinite;
+}
+
+.box-glow {
+  transition: all 0.25s ease;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.box-glow:hover {
+  filter: blur(15px);
+  transform: scale(1.05);
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
+}
