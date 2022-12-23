@@ -1,0 +1,94 @@
+html, body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #070e2e;
+}
+
+.universe {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  min-width: 500px;
+}
+
+.sun {
+  background-image: linear-gradient(-45deg, #ffbb00cc 0%, transparent 100%);
+  position: absolute;
+  height: 25%;
+  width: 25%;
+  z-index: 2;
+  border-radius: 100%;
+  filter: drop-shadow(0 0 20px #ffe88d);
+  animation: rotateSun linear 20s infinite; 
+}
+
+@keyframes rotateSun {
+  to { 
+    transform: rotate(360deg) 
+  }
+}
+
+.earth-wrapper {
+  padding: 20px;
+  position: absolute;
+  height: 85%;
+  width: 85%;
+  z-index: 1;
+  animation: rotateEarth linear 15s infinite; 
+}
+
+.earth-wrapper .earth {
+  /* background-image: linear-gradient(-45deg, #27ae60cc 0%, transparent 100%); */
+  background: radial-gradient(at 60% bottom, #5cffa0cc, #27aea366, #00309966);
+  opacity: 0.7;
+  height: 15%;
+  width: 15%;
+  margin: 0 auto;
+  border-radius: 100%;
+  filter: drop-shadow(0 0 10px #2bcf6f);
+}
+
+/* @keyframes rotateEarth {
+  0%            { transform: rotate(0deg) }
+  8.33%, 25%    { transform: rotate(90deg) }
+  33.33%, 50%   { transform: rotate(180deg) }
+  58.33%, 75%   { transform: rotate(270deg) }
+  83.33%, 100%  { transform: rotate(360deg) }
+} */
+
+@keyframes rotateEarth {
+  to { 
+    transform: rotate(360deg) 
+  }
+}
+
+.pluto-wrapper {
+  padding: 20px;
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  z-index: 1;
+  animation: rotatePluto linear 8s infinite; 
+}
+
+.pluto-wrapper .pluto {
+  background-image: linear-gradient(-45deg, #21acd6cc 0%, transparent 100%);
+  opacity: 0.7;
+  height: 10%;
+  width: 10%;
+  margin: 0 auto;
+  border-radius: 100%;
+  filter: drop-shadow(0 0 5px #20cbff);
+}
+
+@keyframes rotatePluto {
+  to { 
+    transform: rotate(360deg) 
+  }
+}
