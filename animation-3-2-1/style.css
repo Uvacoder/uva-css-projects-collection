@@ -1,0 +1,74 @@
+*, *::before, *::after {
+  font-family: 'Lobster', cursive;
+}
+
+body {
+  background: #ffee66;
+}
+
+:root {
+  --text-large: 9rem;
+  --text-small: 3rem;
+  --opacity-max: 1;
+  --opacity-min: 0;
+  --shadow-offset: 6px;
+  --shadow-colour: #000066;
+  --fill-colour: coral;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.num::after {
+  font-size: var(--text-small);
+  opacity: var(--opacity-min);
+  color: var(--fill-colour);
+  text-shadow: 
+    var(--shadow-offset) 0 0 var(--shadow-colour), 
+    -2px 0 0 var(--shadow-colour), 
+    0 2px 0 var(--shadow-colour), 
+    0 -2px 0 var(--shadow-colour),
+    var(--shadow-offset) 0px var(--shadow-colour), 
+    -1px -1px 0 var(--shadow-colour), 
+    1px -1px 0 var(--shadow-colour), 
+    -1px 1px 0 var(--shadow-colour);
+  content: "3";
+  animation: loop 5s cubic-bezier(0.31,-0.01, 0.64, 1) infinite;
+}
+
+@keyframes loop {
+  0%, 22%, 99% { 
+    content: "3";
+    font-size: var(--text-small);
+    opacity: var(--opacity-min);
+  }
+  11% {
+    content: "3";
+    font-size: var(--text-large);
+    opacity: var(--opacity-max);
+  }
+  33%, 55% {
+    content: "2";
+    font-size: var(--text-small);
+    opacity: var(--opacity-min);
+  }
+  44% {
+    content: "2";
+    font-size: var(--text-large);
+    opacity: var(--opacity-max);
+  }
+  66%, 88% { 
+    content: "1";
+    font-size: var(--text-small);
+    opacity: var(--opacity-min);
+  }
+  77% {
+    content: "1";
+    font-size: var(--text-large);
+    opacity: var(--opacity-max);
+  }
+}
