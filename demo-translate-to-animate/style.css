@@ -1,0 +1,78 @@
+body {
+  margin: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/**************************/
+/* Animate with CSS only */
+/**************************/
+
+.box, #toggler:checked ~ .box {
+  top: 80px;
+  left: 0;
+  transition: all 1s ease;
+}
+
+#toggler ~ .box {
+  top: 150px;
+  left: 100px;
+  transition: all 1s ease;
+}
+
+#toggler {
+  top: -100px;
+  left: -100px;
+  position: absolute;
+}
+
+/***************************/
+/* Animate with JS and CSS */
+/***************************/
+
+.animate {
+  top: 150px;
+  left: 100px;
+  transition: all 1s ease;
+}
+
+/**************************/
+/* Box and button styling */
+/**************************/
+
+.box-wrapper {
+  position: relative;
+  display: block;
+  min-height: 250px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.box.red {
+  background: red;
+}
+
+.box.green {
+  background: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  font-size: 1rem;
+  background: #ccc;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn:hover {
+  background: #bbb;
+  transition: all 0.2s ease;
+}
