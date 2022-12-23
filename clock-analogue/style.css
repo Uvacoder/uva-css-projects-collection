@@ -1,0 +1,179 @@
+:root {
+  --size: 300px;
+  --arm-width: 15px;
+  --main-colour: #ffffffbb;
+  --bg-colour: hsl(230, 30%, 20%);
+  --font-colour: hsl(230, 10%, 60%);
+  --primary-gradient-colour: #ff3d77;
+  --secondary-gradient-colour: #ffc400;
+  --total-steps: 60;
+  --secs: 60s;
+  --duration-secs: var(--secs);
+  --mins: calc(var(--secs) * 60);
+  --duration-mins: var(--mins);
+  --duration-hours:  calc(var(--mins) * 12);
+  --delay-seconds: 0;
+  --delay-minutes: 0;
+  --delay-hours: 0;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 20px;
+  background-color: hsl(230, 100%, 5%);
+  overflow: hidden;
+}
+
+.arm {
+  width: var(--arm-width);
+  position: absolute;
+  left: calc(var(--size)/2 - var(--arm-width)/2);
+  background-color: var(--main-colour);
+  transform-origin: calc(100% - var(--arm-width)/2) 100%;
+  box-shadow: 2px 2px 15px 5px #00000033;
+  mix-blend-mode: screen;
+  animation-name: move;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  transition: all 0.3s ease;
+}
+
+@keyframes move {
+  to { 
+    transform: rotate(360deg); 
+  }
+}
+
+.arm.seconds {
+  height: calc(var(--size) / 2); /* 150px */
+  top: 0; /* 0px */
+  animation-duration: var(--duration-secs);
+  animation-delay: var(--delay-seconds);
+  animation-timing-function: steps(var(--total-steps), end);
+  background-image: linear-gradient(var(--main-colour) 0%, var(--primary-gradient-colour) 90%);
+}
+
+.arm.minutes {
+  height: calc(var(--size) / 3); /* 100px */
+  top: calc(var(--size) / 6); /* 50px */
+  animation-duration: var(--duration-mins);
+  animation-delay: var(--delay-minutes);
+  animation-timing-function: steps(var(--total-steps), end);
+  background-image: linear-gradient(var(--main-colour) 20%, var(--primary-gradient-colour) 80%);
+}
+
+.arm.hours {
+  height: calc(var(--size) / 4); /* 75px */
+  top: calc(var(--size) / 4); /* 75px */
+  animation-duration: var(--duration-hours);
+  animation-delay: var(--delay-hours);
+  animation-timing-function: linear;
+  background-image: linear-gradient(var(--main-colour) 10%, var(--primary-gradient-colour) 80%);
+}
+
+.clock-centre {
+  opacity: 1;
+  height: calc(var(--arm-width)*2);
+  width: calc(var(--arm-width)*2);
+  top: calc(var(--size)/2 - var(--arm-width));
+  left: calc(var(--size)/2 - var(--arm-width));
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+arm.rounded-end {
+  border-top-right-radius: calc(var(--arm-width)/2);
+  border-top-left-radius: calc(var(--arm-width)/2);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.outer-circle {
+  min-width: var(--size);
+  min-height: var(--size);
+  position: relative;
+  background-image: radial-gradient(var(--primary-gradient-colour) 10%, var(--secondary-gradient-colour) 90%);
+  border: 20px solid var(--bg-colour);
+  border-radius: 50%;
+}
+
+svg.segments {
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: screen;
+}
+
+svg.segments > circle {
+  --gap: var(--arm-width);
+  /* --stroke-inc: calc(var(--arm-width)/3); */
+  --pi: 3.14159;
+  --segment: calc((2 * var(--pi) * var(--size)/2)/12); /* see 3 in notes.md */
+  stroke: var(--main-colour);
+  stroke-dasharray: calc(var(--segment) - var(--gap)) var(--gap); 
+  stroke-width: 20px;
+  stroke-dashoffset: calc(var(--gap)/2 * -1);
+  stroke-linecap: butt;
+  stroke-opacity: 1; 
+  fill: none; 
+}
+
+.header {
+  text-align: center;
+  color: var(--font-colour);
+  opacity: 0.6;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 0 0 40px 0;
+  text-shadow: 0 2px 5px #000;
+}
+
+.footer {
+  font-family: monospace;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 60px 0 40px 0;
+  color: var(--font-colour);
+}
+
+.footer > a {
+  color: hsl(342, 60%, 60%);
+}
+
+.footer > a:hover {
+  color: hsl(342, 70%, 70%);
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+  font-size: 0.875rem;
+}
+
+.fade-in {
+  animation-name: fade-in-animation;
+  animation-duration: 1s;
+  animation-direction: forwards;
+}
+
+@keyframes fade-in-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
