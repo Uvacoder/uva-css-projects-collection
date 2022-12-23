@@ -1,0 +1,108 @@
+:root {
+  --global-scale: 4;
+  --global-span: 100;
+  --global-duration: 4;
+  --ballSize: 20;
+  --aspect-ratio: 1.25;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #00081d;
+  color: var(--mid);
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+}
+
+.ball {
+  border-radius: 50% / 50%;
+  animation-name: swing, fadeInAnimation;
+  animation-timing-function: cubic-bezier(0.5, 0.05, 0.5, 1), ease-in;
+  animation-iteration-count: infinite, 1;
+  animation-fill-mode: forwards, forwards;
+  --scale: calc(var(--global-scale));
+  --span: calc(var(--global-span) * 1px);
+  opacity: 0;
+  /* mix-blend-mode: screen; */
+}
+
+.container.wireframe > .ball {
+  background: #ffffff22 !important;
+  border-radius: 0;
+  mix-blend-mode: screen;
+  /* outline: 1px solid #ffffff99; */
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: translateX(calc(var(--span) * -1)) rotate(0deg) scale(1);
+    /* width: calc(var(--ballSize) * 1px);
+    height: calc(var(--ballSize) * var(--aspect-ratio) * 1px); */
+  }
+  50% {    
+    --scale: calc(var(--global-scale));
+    transform: translateX(calc(var(--span) * 1)) rotate(180deg) scale(var(--global-scale));
+    /* width: calc(var(--ballSize) * var(--global-scale) * 1px);
+    height: calc(var(--ballSize) * var(--global-scale) * var(--aspect-ratio) * 1px); */
+  }
+}
+
+@keyframes fadeInAnimation { 
+  0% { opacity: 0; } 
+  100% { opacity: 1; } 
+}
+
+header.about {
+  position: absolute;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  top: 20px;
+  right: 20px;
+}
+
+@media only screen and (max-width: 400px) {
+  header.about {
+    top: auto;
+    bottom: 20px;
+  }
+}
+
+header.about > a {
+  color: var(--mid);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+header.about > a:hover {
+  color: var(--light-mid);
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 600;
+  font-size: 1rem;
+  content: "\f35d";
+  margin-left: 10px;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.m-t-30 {
+  margin-top: 30px;
+}
+
+.m-t-40 {
+  margin-top: 40px;
+}
