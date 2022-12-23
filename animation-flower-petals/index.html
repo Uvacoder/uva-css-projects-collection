@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Animating flower petals</title>
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+    <link href="style/controls.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+  </head>
+  <body>
+    <main class="main-container">
+
+      <h2>Animating flower petals 🌷</h2>
+
+      <section class="shapes-wrapper">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </section>
+
+      <section class="controls-wrapper">
+        <label for="speed">Speed</label>
+        <input id="speed" data-unit="s" class="slider" value="5" type="range" min="0.5" max="9.5" step="0.1" />
+        <label for="rotation">Rotation</label>
+        <input id="rotation" data-unit="deg" class="slider" value="900" type="range" min="0" max="1800" step="1" />
+        <label for="origin-x">Origin X</label>
+        <input id="origin-x" data-unit="%" class="slider" value="50" type="range" min="0" max="100" step="1" />
+        <label for="origin-y">Origin Y</label>
+        <input id="origin-y" data-unit="%" class="slider" value="50" type="range" min="0" max="100" step="1" />
+        <div class="button-wrapper">
+          <button id="play">Pause</button>
+          <button id="reset">Reset</button>
+        </div>
+      </section>
+
+    </main>
+    
+    <script src="script.js"></script>
+
+  </body>
+</html>
