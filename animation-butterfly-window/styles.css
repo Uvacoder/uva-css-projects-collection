@@ -1,0 +1,320 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
+
+* {
+    margin: 0;
+    padding: 0;
+    height: 85%;
+    width: 85%;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgba(4, 23, 76, 0.92);
+    height: 60vh;
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    text-transform: lowercase;
+    font-size: 13px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.form {
+    width: 50%;
+    position: relative;
+    height: 60px;
+    margin-top: auto;
+    top: 20%;
+    left: 50%;
+    transform: translate(-5%, -95%);
+}
+
+.form input {
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+@keyframes neonTry {
+    0% {
+        text-shadow:
+        0 0 6px rgba(242, 246, 246, 0.92),
+        0 0 30px rgba(198, 143, 143, 0.34),
+        0 0 12px rgba(76, 98, 239, 0.52),
+        0 0 21px rgba(68, 86, 244, 0.92),
+        0 0 34px rgba(38, 34, 164, 0.78),
+        0 0 70px rgba(130, 236, 55, 0.92);
+
+    }
+    50% {
+        filter: blur(0.01em);
+    }
+    100% {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.98),
+        0 0 30px rgba(135, 249, 236, 0.42),
+        0 0 12px rgba(118, 194, 203, 0.58),
+        0 0 22px rgba(28, 161, 173, 0.84),
+        0 0 38px rgba(9, 98, 98, 0.88),
+        0 0 80px rgb(7, 82, 86);
+        filter: blur(0.018em)
+    }
+}
+
+.form label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid rgb(139, 128, 128);
+}
+
+.content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    /* transition: all 0.3s ease; */
+    color: #c7fafd;
+    font-size: 15px;
+    font-family: 'Syne Mono', monospace;
+    animation: neonTry .85s ease-in-out infinite alternate;
+}
+
+button {
+    height: 45px;
+    width: 150px;
+    margin: 45px 0;
+    background-color:rgb(0, 0, 0);
+    color: white;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%, 5%);
+    border-radius: 10px;
+    border: none;
+    font-family: 'Syne Mono', monospace;
+    animation: slideTextOnHover 3s infinite alternate;
+}
+
+@keyframes slideTextOnHover {
+    from {
+        margin-left: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 50%;
+    }
+}
+
+.scene {
+    /* centering  */
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+}
+
+.turquoise_butterfly {
+    animation: rotating 4s linear infinite;
+    animation-delay: -1s;
+}
+
+@keyframes rotating {
+    0% {
+        transform: translate(0, 10px) rotate(10deg);
+
+    }
+    50% {
+        transform: translate(0, 20px) rotate3d(2, -1, -1, 45deg);
+    }
+
+    100% {
+        transform:  translate(50, 100px) rotate3d(1, 0.8, -1, 20deg);
+
+    }
+}
+.turquoise_butterfly:hover{
+    opacity: 0.2;
+}
+
+.coral_butterfly {
+    animation-name: coral;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+}
+@keyframes coral {
+    0% {
+        transform: translate(0, 20px) rotate(5deg);
+
+    }
+    50% {
+       transform: rotate3d(2, 0, -1, -0.2turn);
+       opacity: 0.8;
+    }
+    100% {
+        transform: translate(10, 100px);
+
+    }
+}
+.coral_butterfly:hover{
+    opacity: 0.2;
+}
+
+.blue_butterfly {
+    animation: blueFlight 4s infinite;
+}
+    
+@keyframes blueFlight {
+    0% {
+        transform: translate(0px,0px) rotate3d(1, -1, 1, 85deg);
+
+    }
+    50% {
+        transform: translate(100px, 300px) rotate3d(1, 0.8, -1, 20deg); 
+    }
+
+    100% {
+        transform:  translate(200px, -20px) rotate3d(1, 0.8, -1, 100deg);
+    }
+}
+
+.blue_butterfly:hover{
+    opacity: 0.2;
+}
+
+.crescent {
+    opacity: 1;
+    animation-name: fadeIn;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.topSpark {
+    transform-origin: center;
+    animation: topPulse 3s ease infinite alternate;
+}
+
+@keyframes topPulse{
+    0% {
+        transform: scale(0.95);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+.centerSpark {
+    transform-origin: center;
+    animation: pulse 3s ease infinite alternate-reverse;
+}
+
+@keyframes pulse{
+    0% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.2;
+    }
+    100%{
+        transform: scale(0.95);
+    }
+}
+
+.leftSpark {
+    animation: leftPulse 3s ease infinite alternate-reverse;
+    transform-origin: center;
+}
+@keyframes leftPulse{
+    0% {
+        transform: scale(0.98);
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    100%{
+        transform: scale(0.98);
+    }
+}
+
+.rightSpark {
+    animation: rightPulse 2.5s linear infinite alternate-reverse;
+    opacity: 0.7;
+    transform-origin: center;
+}
+
+@keyframes rightPulse{
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+    90% {
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+.left_eye {
+    animation: fadeIn 2s ease-in infinite;
+}
+
+.right_eye {
+    animation: fadeIn 2s ease-in infinite;
+}
+
+.right_arm{
+    animation: fadeIn 7s ease-in infinite alternate-reverse;
+}
+
+.left_arm  {
+    animation: fadeIn 5s ease-in infinite alternate-reverse;
+}
+
+.moon_scene {
+    animation: moveRight 3s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateX(0%);
+        opacity: 0;
+        blur: filter(0.018em);
+
+    }
+    to {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+}
