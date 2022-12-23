@@ -1,0 +1,186 @@
+:root {
+  --pointer-width: 50px;
+  --pointer-midpoint: 30px;
+  --pointer-height: 140px;
+  --border-width: 10px;
+  --pointer-adjust: 120px;
+  --pointer-diff: 35px;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  background-color: #000;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  position: absolute;
+  top: 100px;
+}
+
+.pointer {
+  position: absolute;
+  height: var(--pointer-height);
+  transform: rotate(0deg);
+  transform-origin: calc(var(--pointer-midpoint)) 100%;
+  transition: all 1s ease;
+  top: calc(50px + var(--border-width));
+  left: calc(var(--pointer-adjust) - var(--pointer-diff));
+  background: none;
+}
+
+.pointer > .end {
+  border-bottom: solid var(--pointer-width) #000;
+  border-right: solid var(--pointer-midpoint) transparent;
+  border-left: solid var(--pointer-midpoint) transparent;
+  box-shadow: 0 5px 5px -5px #00000099; 
+}
+
+.dial-area {
+  position: absolute;
+  height: calc(var(--pointer-height) * 2);
+  width: calc(var(--pointer-height) * 2);
+  border: 10px solid #333;
+  border-radius: 50%;
+  top: 50px;
+  left: calc(var(--pointer-diff) * -1);
+  background-color: #f6f6f6;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-1:checked ~ .pointer {
+  transform: rotate(0deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-1 + .btn,
+input[type="radio"]#pos-1:checked ~ .dial-area {
+  background-color: hsl(195, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-2:checked ~ .pointer {
+  transform: rotate(45deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-2 + .btn,
+input[type="radio"]#pos-2:checked ~ .dial-area {
+  background-color: hsl(170, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-3:checked ~ .pointer {
+  transform: rotate(90deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-3 + .btn,
+input[type="radio"]#pos-3:checked ~ .dial-area {
+  background-color: hsl(150, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-4:checked ~ .pointer {
+  transform: rotate(135deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-4 + .btn,
+input[type="radio"]#pos-4:checked ~ .dial-area {
+  background-color: hsl(80, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-5:checked ~ .pointer {
+  transform: rotate(180deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-5 + .btn,
+input[type="radio"]#pos-5:checked ~ .dial-area {
+  background-color: hsl(60, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-6:checked ~ .pointer {
+  transform: rotate(225deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-6 + .btn,
+input[type="radio"]#pos-6:checked ~ .dial-area {
+  background-color: hsl(50, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-7:checked ~ .pointer {
+  transform: rotate(270deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-7 + .btn,
+input[type="radio"]#pos-7:checked ~ .dial-area {
+  background-color: hsl(35, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"]#pos-8:checked ~ .pointer {
+  transform: rotate(315deg);
+  transition: all 1s ease;
+}
+
+input[type="radio"]#pos-8 + .btn,
+input[type="radio"]#pos-8:checked ~ .dial-area {
+  background-color: hsl(10, 100%, 50%) !important;
+  transition: background 1s ease;
+}
+
+input[type="radio"] {
+  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+label.btn {
+  cursor: pointer;
+  padding: 4px 8px;
+  margin: 0;
+  font-weight: 500;
+  border-radius: 3px;
+  border: 0;
+  outline: 1px solid none;
+  background-color: inherit;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+input[type="radio"] + .btn {
+  opacity: 0.65;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"] + .btn:hover {
+  opacity: 1;
+}
+
+input[type="radio"]:checked + .btn {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
