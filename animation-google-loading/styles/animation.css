@@ -1,0 +1,80 @@
+@keyframes fadeInAnimation { 
+  0% { 
+    opacity: 0; 
+  } 
+  100% { 
+    opacity: 1; 
+  } 
+} 
+
+@keyframes loading {
+  0%, 100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes loading-steps {
+  0% {
+    left: calc(var(--left-step) * -1 + var(--size)/2);
+  }
+  25% {
+    left: calc(var(--left-step) * 0 + var(--size)/2);
+  }
+  50% {
+    left: calc(var(--left-step) * 1 + var(--size)/2);
+  }
+  75% {
+    left: calc(var(--left-step) * 2 + var(--size)/2);
+  }
+  100% {
+    left: calc(var(--left-step) * 3 + var(--size)/2);
+  }
+}
+
+@keyframes colour-loop {
+  0%, 100% {
+    --bg-colour: var(--blue);
+  }
+  25% {
+    --bg-colour: var(--red);
+  }
+  50% {
+    --bg-colour: var(--yellow);
+  }
+  75% {
+    --bg-colour: var(--green);
+  }
+}
+
+.dot-wrapper:nth-child(1),
+.dot-wrapper:nth-child(1) > .dot {
+  animation-delay: calc(var(--speed) * calc(var(--delay-step) * 1));
+}
+
+.dot-wrapper:nth-child(2),
+.dot-wrapper:nth-child(2) > .dot {
+  animation-delay: calc(var(--speed) * calc(var(--delay-step) * 2));
+}
+
+.dot-wrapper:nth-child(3),
+.dot-wrapper:nth-child(3) > .dot {
+  animation-delay: calc(var(--speed) * calc(var(--delay-step) * 3));
+}
+
+.dot-wrapper:nth-child(4),
+.dot-wrapper:nth-child(4) > .dot {
+  animation-delay: calc(var(--speed) * calc(var(--delay-step) * 4));
+}

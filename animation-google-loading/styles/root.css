@@ -1,0 +1,17 @@
+:root {
+  --speed: 2;
+  --max-speed: 4;
+  --delay-step: 0.25s;
+  --size: 20px;
+  --total-dots: 4;
+  --container-width: calc(var(--total-dots) * var(--size));
+  --left-step: var(--size);
+  --slider-thumb-size: 25px;
+  --slider-background-colour: #b6afc7;
+  --slider-border-colour: #fff;
+  --blue: #4285F4; 
+  --red: #DB4437; 
+  --yellow: #F4B400; 
+  --green: #0F9D58; 
+  --bg-colour: var(--blue);
+}
