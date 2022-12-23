@@ -1,0 +1,145 @@
+:root {
+  --red: #dd1e10;
+  --red-dark: #dd1e1033;
+  --amber: #f7b500;
+  --amber-dark: #f7b50033;
+  --green: #33a532;
+  --green-dark: #33a53233;
+  --speed: 1.5s;
+  --opacity-off: 0.35;
+  --shadow-spread: 15px;
+}
+
+body {
+  margin: 50px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.lights {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: black;
+  margin: 20px auto 0 auto;
+  padding: 40px 30px;
+  width: fit-content;
+  border-radius: 45px;
+  border: 20px solid hsl(240, 15%, 15%);
+  box-shadow: 0 0 100px 20px hsla(230, 75%, 75%, 0.4);
+}
+
+ul.lights > li {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 10px solid rgba(255, 255, 255, 0);
+  animation-name: fade;
+  animation-duration: calc(var(--speed) * 3);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  opacity: var(--opacity-off);
+  animation-play-state: paused;
+}
+
+ul.lights > li:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+ul.lights > li.red {
+  background-color: var(--red);
+  box-shadow: 0 0 30px var(--shadow-spread) var(--red), 0 0 60px var(--shadow-spread) var(--red-dark);
+  animation-delay: 0s;
+}
+
+ul.lights > li.amber {
+  background-color: var(--amber);
+  box-shadow: 0 0 30px var(--shadow-spread) var(--amber), 0 0 60px var(--shadow-spread) var(--amber-dark);
+  animation-delay: calc(var(--speed) * 1);
+}
+
+ul.lights > li.green {
+  background-color: var(--green);
+  box-shadow: 0 0 30px var(--shadow-spread) var(--green), 0 0 60px var(--shadow-spread) var(--green-dark);
+  animation-delay: calc(var(--speed) * 2);
+}
+
+@keyframes fade {
+  0%, 50%, 66.6%, 83.3%, 100% {
+    opacity: var(--opacity-off);
+    border: 10px double rgba(255, 255, 255, 0);
+  }
+  16.6%, 33% {
+    opacity: 1;
+    border: 10px double rgba(255, 255, 255, 0.2);
+  }
+}
+
+.night-sky {
+  background: linear-gradient(180deg,
+    hsl(230, 100%, 3%),
+    hsl(230, 100%, 5%),
+    hsl(230, 100%, 7%),
+    hsl(230, 100%, 7%),
+    hsl(230, 100%, 15%),
+    hsl(258, 100%, 17%),
+    hsl(318, 100%, 27%),
+    hsl(14, 100%, 65%)
+  );
+}
+
+.pole {
+  width: 40px;
+  height: 50vh;
+  background: linear-gradient(to right, 
+    hsl(240, 15%, 14%), 
+    hsl(240, 15%, 25%), 
+    hsl(240, 15%, 14%), 
+    hsl(240, 15%, 14%), 
+    hsl(240, 15%, 5%)
+  );
+  box-shadow: 0 0 100px 20px hsla(207, 100%, 89%, 0.3);
+}
+
+header.about {
+  position: absolute;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  top: 20px;
+  right: 20px;
+}
+
+header.about > a {
+  color: var(--mid-light-blue);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+header.about > a:hover {
+  color: var(--mid-lighter-blue);
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 600;
+  font-size: 1rem;
+  content: "\f35d";
+  margin-left: 10px;
+}
