@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>css-translate-to-animate-div</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <section class="box-wrapper">
+      <h3>Animate with CSS only</h3>
+      <label for="toggler" class="btn">toggle</label>
+      <input type="checkbox" id="toggler" checked />
+      <div class="box red"></div>
+    </section>
+    <section class="box-wrapper">
+      <h3>Animate with JS and CSS</h3>
+      <button onclick="animateBox('toggle')" class="btn">toggle</button>
+      <button onclick="animateBox('add')" class="btn">move</button>
+      <div class="box green">
+        <button onclick="animateBox('remove')" class="btn">reset</button>
+      </div>
+    </section>
+    
+
+    <script src="script.js"></script>
+  </body>
+</html>
