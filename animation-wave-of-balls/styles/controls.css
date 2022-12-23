@@ -1,0 +1,85 @@
+:root {
+  --light: hsl(260, 18%, 90%);
+  --light-mid: hsl(260, 18%, 80%);
+  --mid: hsl(260, 18%, 70%);
+  --dark: hsl(260, 10%, 40%);
+  --slider-width: 80px;
+  --slider-offset: calc(50px / 2); /* label width/2 */
+  --control-size: 20px;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+ul.controls {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: fixed;
+}
+
+ul.controls > li {
+  display: flex;    
+  flex-direction: column;
+}
+
+ul.controls > li:not(:last-child) {
+  margin-right: 15px;
+}
+
+.slider {
+  position: relative;
+  -webkit-appearance: none;
+  width: var(--slider-width);
+  margin-left: 0;
+  margin-right: 0;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--light-mid);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; 
+  background: var(--mid);
+  border: 4px solid #000;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; 
+  background: var(--mid);
+  border: 4px solid #000;
+  cursor: pointer;
+}
+
+.slider ~ label {
+  position: relative;
+  left: 0;  
+  bottom: 35px;
+  font-size: 0.875rem;
+}

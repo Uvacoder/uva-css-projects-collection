@@ -1,0 +1,47 @@
+.toggler {
+  position: relative;
+  appearance: none; 
+  -webkit-appearance: none;
+  outline: none;
+  width: 36px; 
+  height: 20px;
+  background-color: var(--light);
+  border: 1px solid #262d52;
+  border-radius: 16px; 
+  box-shadow: inset -16px 0 0 0 var(--mid);
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+
+.toggler ~ label {
+  position: relative;
+  left: 0;  
+  bottom: 42px;
+  font-size: 0.875rem;
+}
+
+.toggler:after {
+  content: ""; 
+  position: absolute;
+  top: 1px; 
+  left: 1px;
+  width: 16px; 
+  height: 16px;
+  background-color: transparent;
+  border-radius: 50%; 
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+
+.toggler:checked {
+  /* border-color: var(--mid); */
+  box-shadow: inset 16px 0 0 0 var(--mid);
+}
+
+.toggler:checked:after {
+  left: 17px;
+  box-shadow: -1px 2px 3px rgba(0,0,0,0.05);
+}
+
+.toggler:checked ~ ul.lights > li {
+  animation-play-state: running;
+}
