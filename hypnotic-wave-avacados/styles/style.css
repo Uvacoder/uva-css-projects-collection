@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --wireframe-colour: hsl(233, 12%, 64%);
+  --wireframe-colour-bright: hsl(233, 28%, 83%);
+  --duration: 2.5s;
+  --opacity-light: 0.2;
+  --opacity-full: 1;
+  --highlight-colour: yellow;
+  --mid-colour: green;
+  --shadow-colour: blue;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: hsl(233, 50%, 10%);
+  overflow: hidden;
+  color: var(--wireframe-colour);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 60vmax;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+main > section.blobs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  mix-blend-mode: screen;
+  animation: spin 30s linear infinite;
+}
+
+main > section.blobs > div {
+  width: 4.5vmax;
+  height: 6vmax;
+  border: none;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  margin: 2.5vmax;
+  animation-name: fade, move, colourize;
+  animation-duration: var(--duration), var(--duration), calc(var(--duration) * 10);
+  animation-timing-function: ease-in-out, ease-in-out, linear;
+  animation-iteration-count: infinite, infinite, infinite;
+  animation-fill-mode: both, both, both;
+  animation-play-state: running, running, running;
+  mix-blend-mode: screen; 
+  background-blend-mode: screen;
+  filter: drop-shadow(1vmax 1vmax 2vmax rgba(0, 6, 41, 0.9)); 
+  background-image: radial-gradient(at 60% bottom, var(--highlight-colour), var(--mid-colour), var(--shadow-colour));
+}
+
+#toggle:checked ~ main > section.blobs > div {
+  background-image: none;
+  border: 1px solid var(--wireframe-colour);
+  border-radius: 0;
+  --opacity-light: 1;
+  animation-play-state: paused, running, running;
+  filter: none; 
+}
+
+#toggle:checked ~ main > section.blobs {
+  border: 1px solid var(--wireframe-colour);
+}
+
+@keyframes move {
+  0%, 100% {
+    transform: translateY(7.5vmax) rotate(0deg) scale(1.2);
+  }
+  50% {
+    transform: translateY(-7.5vmax) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: var(--opacity-light);
+  }
+  50% {
+    opacity: var(--opacity-full);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes colourize {
+  0%, 100% {
+    --highlight-colour: yellow;
+    --mid-colour: green;
+    --shadow-colour: blue;
+  }
+  20% {
+    --highlight-colour: yellow;
+    --mid-colour: teal;
+    --shadow-colour:  maroon;
+  }
+  40% {
+    --highlight-colour: cyan;
+    --mid-colour: LimeGreen;
+    --shadow-colour: deeppink;
+  }
+  60% {
+    --highlight-colour: gold;
+    --mid-colour: green;
+    --shadow-colour: red;
+  }
+  80% {
+    --highlight-colour: yellow;
+    --mid-colour: teal;
+    --shadow-colour: blue;
+  }
+}
+
+section.blobs > div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+section.blobs > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+section.blobs > div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+section.blobs > div:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+section.blobs > div:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+label.btn {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  top: 20px;
+  left: 50px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+label.btn:hover {
+  color: var(--wireframe-colour-bright);
+}
+
+label.btn::before {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: -40px;
+  content: ' ';
+  width: 30px;
+  height: 30px;
+  background: hsl(233, 17%, 32%);
+  transition: background 0.2s ease;
+}
+
+label.btn:hover::before {
+  background: hsl(233, 11%, 45%);
+}
+
+label.btn::after {
+  position: absolute;
+  opacity: 0;
+  content: ' ';
+  top: 2px;
+  left: -30px;
+  width: 8px;
+  height: 16px;
+  border: solid hsl(233, 36%, 86%);
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+  transition: opacity 0.2s ease, border 0.2s ease;
+}
+
+label.btn:hover::after {
+  border-color: hsl(233, 100%, 98%);
+}
+
+#toggle:checked ~ label.btn::after {
+  opacity: 1;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  left: -1000px;
+}
+
+header.about {
+  position: absolute;
+  display: inline-block;
+  font-size: 1.5rem;
+  top: 20px;
+  right: 20px;
+}
+
+header.about > a {
+  color: var(--wireframe-colour);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+header.about > a:hover {
+  color: var(--wireframe-colour-bright);
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 600;
+  font-size: 1.25rem;
+  content: "\f35d";
+  margin-left: 10px;
+}
