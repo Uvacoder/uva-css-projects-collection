@@ -1,0 +1,68 @@
+:root {
+  --bg-colour: linear-gradient(
+    hsl(0, 100%, 100%), 
+    hsl(270, 100%, 50%), 
+    hsl(320, 100%, 50%)
+  );
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.75;
+  border-radius: 50% 0% / 50% 0%;
+  mix-blend-mode: multiply;
+  transform-origin: 100% 0%;
+  animation: mymove 3s infinite;
+}
+
+.box:nth-child(1) { 
+  transform: rotate(30deg); 
+  background: var(--bg-colour);
+}
+
+.box:nth-child(2) { 
+  transform: rotate(90deg); 
+  background: var(--bg-colour);
+}
+
+.box:nth-child(3) { 
+  transform: rotate(150deg); 
+  background: var(--bg-colour);
+}
+
+.box:nth-child(4) { 
+  transform: rotate(210deg); 
+  background: var(--bg-colour);
+}
+
+.box:nth-child(5) { 
+  transform: rotate(270deg); 
+  background: var(--bg-colour);
+}
+
+.box:nth-child(6) { 
+  transform: rotate(330deg); 
+  background: var(--bg-colour);
+}
+
+@keyframes mymove {
+  25% {
+    transform-origin: 100% 0%;
+  }
+  50% {
+    transform-origin: 50% 50%;
+  }
+  25% {
+    transform-origin: 0% 100%;
+  }
+}
