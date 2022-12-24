@@ -1,0 +1,125 @@
+:root {
+  --size: 25;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+ul.gallery {
+  margin-top: 6vmin;
+  width: calc(var(--size) * 4vmin);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/**************/
+/* navigation */
+/**************/
+
+ul.gallery > li > input {
+  position: relative;
+  left: -1000px;
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+ul.gallery > li > label {
+  display: inline-block;
+  width: 3vmin;
+  height: 3vmin;
+  min-width: 5px;
+  min-height: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+ul.gallery > li:not(:last-child) > label {
+  margin-right: 1.5vmin;
+}
+
+ul.gallery > li > input + label  {
+  background: #a8a8a8;
+  transition: background 0.2s ease;
+}
+
+ul.gallery > li > label:hover,
+ul.gallery > li > input:checked + label {
+  background: #696969;
+}
+
+/**********/
+/* slides */
+/**********/
+
+ul.gallery > li > span.slide {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(var(--size) * 4vmin);
+  height: calc(var(--size) * 3vmin);
+  background-size: cover;
+  margin: 3vmin;
+  box-shadow: 0 4vmin 4vmin -2vmin #00000066;
+  left: -1000px;
+  opacity: 0;
+  top: 12vmin;
+}
+
+ul.gallery > li > input:checked ~ span.slide {
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  left: calc(50vw - 3vmin - var(--size) * 2vmin);
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    top: 10vmin;
+  }
+}
+
+ul.gallery > li:nth-child(1) > span.slide {
+  background-image: url("https://source.unsplash.com/random/1");
+}
+
+ul.gallery > li:nth-child(2) > span.slide {
+  background-image: url("https://source.unsplash.com/random/2");
+}
+
+ul.gallery > li:nth-child(3) > span.slide {
+  background-image: url("https://source.unsplash.com/random/3");
+}
+
+ul.gallery > li:nth-child(4) > span.slide {
+  background-image: url("https://source.unsplash.com/random/4");
+}
+
+ul.gallery > li:nth-child(5) > span.slide {
+  background-image: url("https://source.unsplash.com/random/5");
+}
